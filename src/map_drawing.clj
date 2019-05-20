@@ -1,4 +1,4 @@
-(ns core
+(ns map-drawing
   (:import [java.awt Color Dimension]
            [javax.swing JPanel JFrame]))
 
@@ -61,18 +61,6 @@
   (vec (repeat height
                (vec (repeat width :full)))))
 
-(comment (-> (full-grid 14 8)
-             (assoc-in [1 1] :empty)
-             (assoc-in [2 1] :empty)
-             (assoc-in [3 1] :empty)
-             (assoc-in [4 1] :empty)
-             (assoc-in [5 1] :empty)
-             (assoc-in [6 1] :empty)
-             (assoc-in [1 2] :empty)
-             (assoc-in [6 2] :empty)
-             (assoc-in [2 3] :empty)
-             (assoc-in [5 3] :empty)
-             (assoc-in [3 4] :empty)
-             (assoc-in [4 4] :empty)
-             grid->indexed-grid
-             draw))
+(defn draw-grid [grid]
+  (-> (grid->indexed-grid grid)
+      draw))
